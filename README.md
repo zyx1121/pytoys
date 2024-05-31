@@ -6,7 +6,7 @@
 
 pytoys currently includes the following toys:
 
-- `ssh_command_runner`: A tool to run commands on multiple devices via SSH, supporting YAML configuration files, logging, and parallel execution.
+- `ssh_command_runner` : A tool to run commands on multiple devices via SSH, supporting YAML configuration files, logging, and parallel execution.
 
 ## Installation
 
@@ -24,4 +24,4 @@ pip install -r requirements.txt
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
