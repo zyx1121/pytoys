@@ -49,7 +49,7 @@ def log_with_timestamp(log_file, message):
     log_file.write(f"[{timestamp}] {message}\n")
 
 
-def execute_ssh_command_with_timeout(ssh, command, timeout=DEFAULT_TIMEOUT):
+def execute_ssh_command(ssh, command, timeout=DEFAULT_TIMEOUT):
     stdin, stdout, stderr = ssh.exec_command(command)
 
     output = ""
@@ -109,9 +109,7 @@ def run_commands_on_device(device, commands, log_dir, config_name, progress_bar)
             if command:
                 try:
                     log_with_timestamp(log_file, f"Executing command:\n{command}")
-                    output, error = execute_ssh_command_with_timeout(
-                        ssh, command, timeout
-                    )
+                    output, error = execute_ssh_command(ssh, command, timeout)
                     if error:
                         log_with_timestamp(log_file, f"Error on {hostname}:\n{error}")
                     else:
