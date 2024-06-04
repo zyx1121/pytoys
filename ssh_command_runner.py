@@ -189,12 +189,23 @@ def print_config(config):
 
 
 def print_log(config_name):
+    config_file = os.path.join(CONFIG_DIR, config_name + ".yaml")
+    if not os.path.isfile(config_file):
+        print(f"Configuration file '{config_file}' does not exist.")
+        return
+    config = load_config(config_file)
+
+    hostnames = [device["hostname"] for device in config["devices"]]
+
     log_files = [f for f in os.listdir(LOG_DIR) if f.startswith(config_name)]
+
     if not log_files:
         print(f"No log files found for configuration '{config_name}'.")
         return
 
-    for log_file in log_files:
+    matched_log_files = [f for f in log_files if any(n in f for n in hostnames)]
+
+    for log_file in matched_log_files:
         log_file_path = os.path.join(LOG_DIR, log_file)
         print(f"\nLog file: {log_file_path}\n")
         with open(log_file_path, "r") as file:
