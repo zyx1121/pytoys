@@ -6,7 +6,9 @@
 
 pytoys currently includes the following toys:
 
-- `ssh_command_runner` : A tool to run commands on multiple devices via SSH, supporting YAML configuration files, logging, and parallel execution.
+- `ssh_run` : A tool to run commands on multiple devices via SSH, supporting YAML configuration files, logging, and parallel execution.
+
+- `jenkins_ctl`: A tool to configure Jenkins parameters and trigger or query Jenkins job statuses.
 
 ## Installation
 
